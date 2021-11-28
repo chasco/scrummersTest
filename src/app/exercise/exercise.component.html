@@ -1,0 +1,43 @@
+<h2>Collection</h2>
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <input type="text"  
+               class="form-control"
+               name="searchValue"
+               [(ngModel)]="searchValue">
+    </div>
+    <div class="col">
+        <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+</div>
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Long Title</th>
+            <th>Details</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of collection.artObjects">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.longTitle}}</td>
+            <td><button (click)="detail(item.objectNumber)" class="btn btn-success">Details</button></td>
+        </tr>
+    </tbody>
+
+</table>
+
+<button (click)="previusPage()" class="btn btn-primary">Previus</button>
+Page {{page}} 
+<button (click)="nextPage()" class="btn btn-primary">Next</button>
